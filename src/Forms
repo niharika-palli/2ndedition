@@ -1,0 +1,6 @@
+<form>
+<label>
+Name:<input type="text" name="name"/>
+</lable>
+<input type="submit" value="Submit"/>
+</form>

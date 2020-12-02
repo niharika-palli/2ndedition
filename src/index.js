@@ -139,6 +139,86 @@ function calculateWinner(squares) {
   return null;
 }
 
+class NameForm extends React.Component{
+  constructor(pros){
+    super(pros);
+    this.state={value:''};
+
+    this.handelChange=this.handelChange.bind(this);
+    this.handelSubmit=this.handelSubmit.bind(this);
+  }
+  handelChange(event){
+    this.setState({value:event.target.value});
+  }
+
+  handelSubmit(event){
+    alert('A name was submitted:'+this.state.value);
+    event.preventDefault();
+  }
+  render(){
+    return(
+      <p>
+  <form onSubmit={this.handelSubmit}>
+<label>
+  
+Name:<input type="text" value={this.state.value} onChange={this.handelChange}/>
+</label>
+<input type="submit" value="Submit"/>
+</form>
+</p>
+    );
+}
+}
+
+
+ReactDOM.render(
+  <NameForm />,
+  document.getElementById('root')
+);
+
+
+class TextForm extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={ 
+      value:'Think fine Always Shine'};
+
+      this.handelChange=this.handelChange.bind(this);
+      this.handelSubmit=this.handelSubmit.bind(this);
+    }
+
+    handelChange(event){
+      this.setState({value:event.target.value});
+    }
+
+    handelSubmit(event){
+      alert('a simple text:'+this.state.value);
+      event.preventDefault();
+    }
+
+    render(){
+      return(
+        <p>
+        <form onSubmit={this.handelSubmit}>
+          <label>
+            Text:
+            <textarea value={this.state.value} onChange={this.handelChange}/>
+            </label>
+            <input type="submit" value="Submit"/>
+            </form>
+            </p>
+      );
+    }
+  }
+
+/*ReactDOM.render(
+  <TextForm />,
+  document.getElementById('root')
+);*/
+
+
+
+
 
 
 // If you want to start measuring performance in your app, pass a function

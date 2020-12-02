@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+import Form from './Form'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 /*ReactDOM.render(
   <React.StrictMode>
@@ -115,9 +123,60 @@ class Game extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <Game />,
+  <Form />,
   document.getElementById('root')
 );
+
+function Test() {
+  return (
+    <h2 className="test">Test</h2>
+  )
+}
+
+
+function Home() {
+  return (
+    <h2 className="test">Home</h2>
+  )
+}
+
+function Test2() {
+  return (
+    <h2>Test2</h2>
+  )
+}
+
+function Default() {
+  return (<Router>
+    <div>
+      
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/test">Test</Link>
+          </li>
+          <li>
+            <Link to="/test2">Test2</Link>
+          </li>
+        </ul>
+      
+
+      <Switch>
+        <Route path="/test">
+          <Test />
+        </Route>
+        <Route path="/test2">
+          <Test2 />
+        </Route>
+        <Route path="/">
+        </Route>
+      </Switch>
+    </div>
+  </Router>
+);
+}
 
 function calculateWinner(squares) {
   const lines = [
@@ -171,10 +230,10 @@ Name:<input type="text" value={this.state.value} onChange={this.handelChange}/>
 }
 
 
-ReactDOM.render(
+/*ReactDOM.render(
   <NameForm />,
   document.getElementById('root')
-);
+);*/
 
 
 class TextForm extends React.Component{
